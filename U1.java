@@ -6,11 +6,11 @@ public class U1 extends Rocket{
         maxWeight = 18000;
     }
     public boolean launch() {
-        int randNo = abs((int) Math.floor(Math.random() * 100));
+        int randNo = abs((int) Math.floor(Math.random() * 101));
         return (5 * (currentWeight / maxWeight)) < randNo;
     }
     public boolean land() {
-        int randNo = abs((int) Math.floor(Math.random() * 100));
+        int randNo = abs((int) Math.floor(Math.random() * 101));
         return (currentWeight / maxWeight) < randNo;
     }
 }
