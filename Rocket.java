@@ -1,7 +1,7 @@
 public class Rocket implements SpaceShip {
     int cost;
-    double currentWeight;
-    double maxWeight;
+    double cargo_carried;
+    double max_cargo;
     public boolean launch()
     {
         return true;
@@ -11,11 +11,12 @@ public class Rocket implements SpaceShip {
         return true;
     }
     public final boolean canCarry(Item item) {
-        return (currentWeight + item.weight) >= maxWeight;
+        return (cargo_carried + item.weight) <= max_cargo;
     }
-    public final void carry(Item item) {
+    public final boolean carry(Item item) {
 
-        currentWeight += item.weight;
+        cargo_carried+= item.weight;
+        return false;
     }
     public int getCost() {
 
