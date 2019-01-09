@@ -10,4 +10,3 @@ class Item {
         return name + weight;
     }
 }
-
