@@ -6,7 +6,7 @@ public class Simulation {
     ArrayList<Item> loadItemsOne() throws IOException {
         ArrayList<Item> loadManifest = new ArrayList<>();
         try{
-        Scanner fileScanner = new Scanner(new File("C:\\Users\\User2\\Desktop\\ud282-master\\SpaceChallange\\src\\phase-1.txt"));
+        Scanner fileScanner = new Scanner(new File("phase-1.txt"));
         while (fileScanner.hasNextLine()){
             Item newItem = new Item();
             String[] tokens = fileScanner.nextLine().split("=");
@@ -22,7 +22,7 @@ public class Simulation {
     ArrayList<Item> loadItemsTwo() throws IOException {
         ArrayList<Item> loadManifest = new ArrayList<>();
         try{
-            Scanner fileScanner = new Scanner(new File("C:\\Users\\User2\\Desktop\\ud282-master\\SpaceChallange\\src\\phase-2.txt"));
+            Scanner fileScanner = new Scanner(new File("phase-2.txt"));
             while (fileScanner.hasNextLine()){
                 Item newItem = new Item();
                 String[] tokens = fileScanner.nextLine().split("=");
