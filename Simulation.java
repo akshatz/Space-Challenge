@@ -1,8 +1,8 @@
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Simulation {
+    
     public ArrayList<Item> loadItems(File file) throws IOException {
         ArrayList<Item> Items;
         try (FileReader filereader = new FileReader(file)) {
@@ -28,8 +28,6 @@ public class Simulation {
         }
         return Items;
     }
-
-
     public ArrayList<Rocket> loadU1(ArrayList<Item> list) {
         ArrayList<Rocket> rocketsOne = new ArrayList<>();
         Rocket newOne = new U1();
@@ -46,7 +44,7 @@ public class Simulation {
          }
          return rocketsOne;
     }
-    ArrayList<Rocket> loadU2(ArrayList<Item> list) {
+    public ArrayList<Rocket> loadU2(ArrayList<Item> list) {
          ArrayList<Rocket> rocketsTwo = new ArrayList<>();
          Rocket newTwo = new U2();
          for (Item thisItem : list) {
