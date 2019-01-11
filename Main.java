@@ -31,7 +31,7 @@ class Main{
         int trials2 = mySim.runSimulation(phase2U1Rockets);
         int trials3 = mySim.runSimulation(phase1U2Rockets);
         int trials4 = mySim.runSimulation(phase2U2Rockets);
-        System.out.println("Total cost for U1 fleet phase 1: " + (trials+trials2));
+        System.out.println("Total cost for U1 fleet phase 1: " + trials);
         System.out.println("Total cost for U1 fleet, phase 2: " + trials2);
         System.out.println("Total cost for U2 fleet, phase 1: " + trials3);
         System.out.println("Total cost for U2 fleet phase 2: " + trials4);
