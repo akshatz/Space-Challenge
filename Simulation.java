@@ -3,38 +3,32 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Simulation {
-    ArrayList<Item> loadItemsOne() throws IOException {
-        ArrayList<Item> loadManifest = new ArrayList<>();
-        try{
-        Scanner fileScanner = new Scanner(new File("phase-1.txt"));
-        while (fileScanner.hasNextLine()){
-            Item newItem = new Item();
-            String[] tokens = fileScanner.nextLine().split("=");
-            newItem.name = tokens[0];
-            newItem.weight = Integer.parseInt(tokens[tokens.length-1]);
-            loadManifest.add(newItem);
-        }}
-        catch(IOException e){
-            e.printStackTrace();
+    public ArrayList<Item> loadItems(File file) throws IOException {
+        ArrayList<Item> Items;
+        try (FileReader filereader = new FileReader(file)) {
+            BufferedReader bufferedreader = new BufferedReader(filereader);
+            String item_name;
+            item_name = null;
+            int item_weight = 0;
+            Items = new ArrayList<Item>();
+            String line = null;
+            while ((line = bufferedreader.readLine()) != null) {
+                String[] splitByEquals = line.split("=");
+                for (String splitPart : splitByEquals) {
+                    char check = splitPart.charAt(0);
+                    if (Character.isDigit(check)) {
+                        item_weight = Integer.parseInt(splitPart);
+                    } else {
+                        item_name = splitPart;
+                    }
+                }
+                Item item = new Item();
+                Items.add(item);
+            }
         }
-        return loadManifest;
+        return Items;
     }
-    ArrayList<Item> loadItemsTwo() throws IOException {
-        ArrayList<Item> loadManifest = new ArrayList<>();
-        try{
-            Scanner fileScanner = new Scanner(new File("phase-2.txt"));
-            while (fileScanner.hasNextLine()){
-                Item newItem = new Item();
-                String[] tokens = fileScanner.nextLine().split("=");
-                newItem.name = tokens[0];
-                newItem.weight = Integer.parseInt(tokens[tokens.length-1]);
-                loadManifest.add(newItem);
-            }}
-        catch(IOException e){
-            e.printStackTrace();
-        }
-        return loadManifest;
-    }
+
 
     public ArrayList<Rocket> loadU1(ArrayList<Item> list) {
         ArrayList<Rocket> rocketsOne = new ArrayList<>();
